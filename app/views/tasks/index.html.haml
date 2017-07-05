@@ -1,0 +1,25 @@
+%h2.page-heading Home
+
+%ul.nav.nav-tabs.tasks-tabs{role: "tablist"}
+  %li.open{role: "presentation"}
+    %a{href: "#open-tasks", data: {toggle: "tab"} } Open tasks
+  %li{role: "presentation"}
+    %a{href: "#progress-tasks", data: {toggle: "tab"}} Progress tasks
+  %li{role: "presentation"}
+    %a{href: "#blocked-tasks", data: {toggle: "tab"}} Blocked tasks
+  %li{role: "presentation"}
+    %a{href: "#closed-tasks", data: {toggle: "tab"}} Closed tasks
+
+=form_tag destroy_multiple_tasks_path, method: :delete, class: "batch-del-form", data: {remote: true} do
+  .tab-content.tasks-tab-content
+    %ul#open-tasks.list-group.tasks-list.tab-pane.active.sort-container{role: "tabpanel"}
+      =render "tasks/shared/tasks_list", tasks: @open_tasks, type: "open"
+    %ul#progress-tasks.list-group.tasks-list.tab-pane.sort-container{role: "tabpanel"}
+      =render "tasks/shared/tasks_list", tasks: @progress_tasks, type: "progress"
+    %ul#blocked-tasks.list-group.tasks-list.tab-pane.sort-container{role: "tabpanel"}
+      =render "tasks/shared/tasks_list", tasks: @blocked_tasks, type: "blocked"
+    %ul#closed-tasks.list-group.tasks-list.tab-pane.sort-container{role: "tabpanel"}
+      =render "tasks/shared/tasks_list", tasks: @closed_tasks, type: "closed"
+
+  #index-links
+    =render "tasks/shared/index_links"

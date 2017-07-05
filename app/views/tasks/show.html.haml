@@ -1,0 +1,40 @@
+.single-task
+  / Heading.
+  .task-heading
+    %h2
+      =@task.title
+
+    -if @task.status="open"
+      =link_to "Progress", progress_task_path(@task), data: { remote: true }, class: "progress_task btn btn-default btn-sm"
+      =link_to "Blocked", blocked_task_path(@task), data: { remote: true }, class: "blocked_task btn btn-default btn-sm"
+      =link_to "Closed", closed_task_path(@task), data: { remote: true }, class: "closed_task btn btn-default btn-sm"
+    -elsif @task.status="progress"
+      =link_to "Blocked", blocked_task_path(@task), data: { remote: true }, class: "blocked_task btn btn-default btn-sm"
+      =link_to "Closed", closed_task_path(@task), data: { remote: true }, class: "closed_task btn btn-default btn-sm"
+    -elsif @task.status="blocked"
+      =link_to "Progress", progress_task_path(@task), data: { remote: true }, class: "progress_task btn btn-default btn-sm"
+      =link_to "Closed", closed_task_path(@task), data: { remote: true }, class: "closed_task btn btn-default btn-sm"
+    -else
+      =link_to "Reopen", open_task_path(@task), data: { remote: true }, class: "open_task btn btn-default btn-sm"
+
+
+  / Attributes.
+  .task-attributes
+    %p
+      %b Priority:
+      =@task.priority
+    %p
+      %b Due date:
+      =@task.due_date.strftime("%d-%m-%Y")
+    %p
+      %b User:
+      =@task.user.full_name
+
+    %div.task-description
+      %p
+        %b Description:
+      %p
+        =@task.description
+
+  / Links.
+  =render "tasks/shared/links"

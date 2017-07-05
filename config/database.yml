@@ -1,0 +1,21 @@
+
+development: &development
+ adapter: mysql2
+ database: taskmanagement_development
+ username: root
+ host: localhost
+ password: root
+
+test: &test
+ adapter: mysql2
+ database: taskmanagement_test
+ username: root
+ host: localhost
+ password: root
+
+production:
+  adapter: postgresql
+  database: taskmanagement_production
+  pool: 5
+  timeout: 5000
+

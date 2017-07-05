@@ -1,0 +1,7 @@
+$("#open-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: open_tasks, type: "open" }) %>");
+$("#progress-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: progress_tasks, type: "progress" }) %>");
+$("#blocked-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: blocked_tasks, type: "blocked" }) %>");
+$("#closed-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: closed_tasks, type: "closed" }) %>");
+
+$("#index-links").html("<%= j (render partial: "tasks/shared/index_links") %>");
+Application.init();
