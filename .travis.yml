@@ -1,0 +1,17 @@
+  language: ruby
+  sudo: false
+  cache: bundler
+  rvm:
+   - 2.3.0
+   - 2.3.1
+  os:
+   - linux
+   - osx
+   - window
+  env:
+   - DB=mysql
+  script:
+    - RAILS_ENV=test bundle exec rake assets:precompile
+    - RAILS_ENV=test bundle exec rake db:migrate --trace
+    - bundle exec rake db:test:prepare
+    - bundle exec rspec spec/

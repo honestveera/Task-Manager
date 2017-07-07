@@ -8,7 +8,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'jquery-ui-rails'
-gem 'turbolinks'
+gem "turbolinks"
 gem 'jbuilder', '~> 2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,11 +18,14 @@ gem 'haml-rails'
 #Documentation Gems
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-#
+#Rails console
 gem 'pry-rails'
+
+#User Management authrntication gem
 gem 'devise'
-gem 'mysql2', '~> 0.4.4'
+gem 'mysql2', '~> 0.3.21'
 gem 'puma'
+gem 'travis'
 
 group :production do
   gem 'pg'
@@ -36,6 +39,7 @@ group :development, :test do
   gem 'byebug'
   gem 'foreman'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
