@@ -14,14 +14,15 @@
 ActiveRecord::Schema.define(version: 20161216115927) do
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "priority",    limit: 4
+    t.string   "title",          limit: 255
+    t.text     "description",    limit: 65535
+    t.integer  "priority",       limit: 4
     t.date     "due_date"
-    t.string   "status",      limit: 255,   default: "open"
-    t.integer  "user_id",     limit: 4
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.integer  "assign_user_id", limit: 4,                      null: false
+    t.string   "status",         limit: 255,   default: "open"
+    t.integer  "user_id",        limit: 4
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree

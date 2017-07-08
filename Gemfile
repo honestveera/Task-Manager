@@ -3,12 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 
 #Assets Management Gems
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass'
+gem 'bootstrap-select-rails'
+gem 'therubyracer'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'jquery-ui-rails'
 gem "turbolinks"
+gem "jquery-turbolinks"
 gem 'jbuilder', '~> 2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

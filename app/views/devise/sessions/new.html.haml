@@ -1,13 +1,16 @@
-%h2.page-heading Log in
+
 .row
-  .col-md-3
+.col-lg-12
+  .col-lg-3.col-lg-8
+  .col-lg-3.col-lg-3
+    %h2.page-heading Log in
     =form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
         =f.label :email
-        =f.email_field :email, autofocus: true, class: "form-control"
+        =f.email_field :email, autofocus: true, class: "form-control",placeholder: "Email"
       .form-group
         =f.label :password
-        =f.password_field :password, autocomplete: "off", class: "form-control"
+        =f.password_field :password, autocomplete: "off", class: "form-control",placeholder: "Password"
       - if devise_mapping.rememberable?
         .checkbox.task-checkbox
           =f.check_box :remember_me

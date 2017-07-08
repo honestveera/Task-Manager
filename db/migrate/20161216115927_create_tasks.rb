@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.integer :priority
       t.date :due_date
+      t.integer  :assign_user_id,null: false
       t.string :status,default:"open"
       t.references :user, index: true, foreign_key: true
 

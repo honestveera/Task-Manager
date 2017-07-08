@@ -12,6 +12,7 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+/config/database.yml
 /log/*
 !/log/.keep
 /tmp
@@ -46,7 +47,7 @@ node_modules
 # Optional npm cache directory
 .npm
 
-# Optional REPL history 
+# Optional REPL history
 .node_repl_history
 
 # IJI data

@@ -15,6 +15,9 @@
         =f.label :description
         =f.text_area :description, class: "form-control", rows: 6
       .form-group
+        =f.label :assign_user_id
+        =f.select :assign_user_id,options_for_select(User.all.collect{|user| ["#{user.first_name} #{user.last_name}", user.id]}),{:prompt => "-- Select User --"},{class: ""}
+      .form-group
         =f.label :priority
         =f.number_field :priority, class: "form-control cli-walid_subject"
       .form-group
@@ -32,4 +35,12 @@
       dateFormat: "dd-mm-yy",
       minDate: new Date(),
     });
+    $('.selectpicker').selectpicker({
+        size: "fit",
+        showTick:true,
+        tickIcon:"",
+        showTick:true
+     });
   });
+
+  

@@ -139,7 +139,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :priority, :due_date, :status, :user_id)
+      params.require(:task).permit(:title, :description, :priority, :due_date, :status, :user_id,:assign_user_id)
     end
 
     def respond_update_tasks_list
