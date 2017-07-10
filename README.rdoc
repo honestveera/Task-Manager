@@ -1,0 +1,15 @@
+=== Task Manager
+
+{<img src="https://travis-ci.org/honestveera/Task-Manager.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/codesenberg/honestveera/Task-Manager]
+
+=== Scope
+Task manager application built using Ruby on Rails technology.
+
+Goal - build task management system using Ruby on Rails technology.
+
+=== Installation using Shell script file
+
+1.setup using Shell file
+   source ./fast_setup.sh
+
+
