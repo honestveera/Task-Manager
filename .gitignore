@@ -16,6 +16,7 @@
 /log/*
 !/log/.keep
 /tmp
+/config/application.yml
 logs
 *.log
 npm-debug.log*

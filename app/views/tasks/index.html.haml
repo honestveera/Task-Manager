@@ -9,6 +9,8 @@
     %a{href: "#blocked-tasks", data: {toggle: "tab"}} Blocked tasks
   %li{role: "presentation"}
     %a{href: "#closed-tasks", data: {toggle: "tab"}} Closed tasks
+  %li{role: "presentation"}
+    %a{href: "#history-tasks", data: {toggle: "tab"}} History Task
 
 =form_tag destroy_multiple_tasks_path, method: :delete, class: "batch-del-form", data: {remote: true} do
   .tab-content.tasks-tab-content
@@ -20,6 +22,8 @@
       =render "tasks/shared/tasks_list", tasks: @blocked_tasks, type: "blocked"
     %ul#closed-tasks.list-group.tasks-list.tab-pane.sort-container{role: "tabpanel"}
       =render "tasks/shared/tasks_list", tasks: @closed_tasks, type: "closed"
+    %ul#history-tasks.list-group.tasks-list.tab-pane.sort-container{role: "tabpanel"}
+      =render "tasks/shared/tasks_list", tasks: @history_tasks, type: "history"
 
   #index-links
     =render "tasks/shared/index_links"

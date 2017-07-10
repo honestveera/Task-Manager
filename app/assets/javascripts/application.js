@@ -22,7 +22,7 @@
 //= require bootstrap/dropdown
 //= require moment
 //= require_tree .
-$('.selectpicker').selectpicker();
+
 var Application = (function($, window, document, undefined) {
 
   var forEach = Array.prototype.forEach,

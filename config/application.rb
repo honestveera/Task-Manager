@@ -30,6 +30,9 @@ module TManager
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
 
+    #Back ground job run use of delayed job
+    config.active_job.queue_adapter = :delayed_job
+
     # Rails generators.
     config.generators do |g|
       g.template_engine :haml

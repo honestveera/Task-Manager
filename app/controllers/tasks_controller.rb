@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
+        DailyReportEmailJob.set(wait: 20.seconds).perform_later(@task)
         flash[:success] = 'Task was successfully created.'
         format.html { redirect_to @task }
         format.json { render :show, status: :created, location: @task }
@@ -129,6 +130,7 @@ class TasksController < ApplicationController
       @progress_tasks = @tasks.where(status:"progress")
       @blocked_tasks = @tasks.where(status: "blocked")
       @closed_tasks = @tasks.where(status: "closed")
+      @history_tasks = @tasks.order('updated_at desc')
     end
 
     def set_task
@@ -146,7 +148,7 @@ class TasksController < ApplicationController
       respond_to do |format|
         format.html { redirect_to tasks_path }
         format.json { head :no_content }
-        format.js   { render partial: "tasks/shared/update_tasks_list", locals: { open_tasks: @open_tasks, progress_tasks: @progress_tasks,blocked_tasks: @blocked_tasks,closed_tasks: @closed_tasks} }
+        format.js   { render partial: "tasks/shared/update_tasks_list", locals: { open_tasks: @open_tasks, progress_tasks: @progress_tasks,blocked_tasks: @blocked_tasks,closed_tasks: @closed_tasks,history_tasks: @history_tasks} }
       end
     end
 end

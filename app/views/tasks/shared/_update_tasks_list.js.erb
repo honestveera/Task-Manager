@@ -2,6 +2,7 @@ $("#open-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals:
 $("#progress-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: progress_tasks, type: "progress" }) %>");
 $("#blocked-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: blocked_tasks, type: "blocked" }) %>");
 $("#closed-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: closed_tasks, type: "closed" }) %>");
+$("#history-tasks").html("<%= j (render partial: "tasks/shared/tasks_list", locals: { tasks: history_tasks, type: "history" }) %>");
 
 $("#index-links").html("<%= j (render partial: "tasks/shared/index_links") %>");
 Application.init();
