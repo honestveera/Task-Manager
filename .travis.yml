@@ -10,6 +10,8 @@
    - mysql -e 'CREATE DATABASE taskmanagement_test;'
   env:
    - DB=mysql2
+  before_script:
+    - cp config/database.travis.yml config/database.yml
   script:
     - RAILS_ENV=test bundle exec rake db:migrate --trace
     - bundle exec rake db:test:prepare
