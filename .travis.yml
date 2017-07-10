@@ -6,9 +6,13 @@
   os:
    - linux
    - osx
+  before_install:
+   - mysql -e 'CREATE DATABASE taskmanagement_test;'
   env:
-   - DB=sqlite3
+   - DB=mysql2
   script:
     - RAILS_ENV=test bundle exec rake db:migrate --trace
     - bundle exec rake db:test:prepare
     - bundle exec rspec spec/
+  services:
+    - mysql
