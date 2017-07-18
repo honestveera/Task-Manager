@@ -41,6 +41,9 @@ gem 'mailgun-ruby'
 #BACKGROUND PROCESS MANAGE
 gem 'delayed_job_active_record'
 
+#Scheduling jobs
+gem 'whenever', :require => false
+
 
 group :production do
   gem 'heroku','3.43'
