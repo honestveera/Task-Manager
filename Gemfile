@@ -53,12 +53,25 @@ group :production do
 end
 
 group :development, :test do
+  #Data population at backend
   gem 'factory_girl_rails'
+
+  #provide BDD test enviroment
   gem 'rspec-rails'
   gem 'byebug'
   gem 'foreman'
+  gem 'vcr'
+  gem 'webmock', '~> 2.1'
+  gem 'pundit'
+
+  #Find page element use of capybara
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'capybara-screenshot'
+
+  #Trigger browser use of selenium
+  gem 'selenium-webdriver','2.53'
+  gem 'chromedriver-helper'
+
 end
 
 group :development do
@@ -68,7 +81,16 @@ group :development do
 end
 
 group :test do
+  #Clean Data base
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'faker'
+  gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov-html', '~> 0.10.0',:require => false
+  gem 'simplecov-json', :require => false
+  gem 'simplecov-rcov', :require => false
+
+  #Site Prism provide a POM pattern
+  gem 'site_prism', '~> 2.5'
+  gem 'site_prism-table'
 end

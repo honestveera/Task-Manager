@@ -27,7 +27,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
-        DailyReportEmailJob.set(wait: 20.seconds).perform_later(@task)
+        DailyReportEmailJob.perform_later(@task)
         flash[:success] = 'Task was successfully created.'
         format.html { redirect_to @task }
         format.json { render :show, status: :created, location: @task }
